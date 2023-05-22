@@ -1,0 +1,241 @@
+//Variables: Reservada let
+
+// let dato = 5
+//let dato 
+//dato = 5
+console.log(dato)
+
+//Tipos de datos: number(número), string(palabra, frase o caracter)
+//Boolean(Verdadero o Falso 0 y 1), undifined
+
+let miNumero = 1
+typeof(miNumero)
+
+let miString = 'Hola Mundo'
+typeof(miString)
+
+let miBooleano = false
+typeof (miBooleano)
+
+let dato
+typeof(dato)
+
+// Operadores matemáticos 
+let suma = 5 + 5
+suma
+
+// let resta = 3 − 2;
+resta
+
+let division = 3/3
+division
+
+let multiplicacion = 5 * 10
+multiplicacion
+
+let potencia = 3 ** 3
+potencia
+
+let frase = 'Hola'+ 'mundo' + '!'
+frase
+
+let x = 1
+x
+
+// preincremento
+let y = ++x
+y
+x //2
+
+// postdecremento
+let z = x++
+z // 2
+x // 3
+
+// decremento
+// let a = x−−
+a //3
+x //2
+
+// predecremento
+// let b = −−x
+// b = 1
+// x = 1
+
+// Operadores Booleanos
+!true //= false, es lo contrario 
+!false // =true 
+
+!!true //= true 
+!!false //= false
+
+// Operadores de igualdad comprobar el valor y el tipo 
+true === true // true 
+false === false //false
+
+// operador de distinto
+true !==false //true
+false !== false //false 
+
+3 == '3' //true 
+3 === '3' // false
+3 === 3 //true
+
+// Comparaciones 
+5 > 3 // true 
+5 < 3 //False 
+3 >= 3 //true 
+2 <= 1 //false 
+
+'a' < 'b' //true 
+
+// Operadores Lógicos
+// Operador AND &&
+// true si todos los operadores que estamos comparando son true 
+true && true && true && true  // true
+true && false && true // false 
+
+// Operador OR ||
+// funciona a la inversa de AND si todos los valores son falsos
+// nos va a devolver falso, pero en el momento en el que uno de ellos sea true nos devolverá true
+false || false || false || false // false
+false || true || false || false // true
+
+0 == false //true 
+1 == true // true 
+
+0 && true //0 (false)
+1 && 'hello' //hello
+
+const port = process.env.PORT || 3000 //3000
+
+// Condicionales: son condiciones que nos van a permitir realizar diferentes instrucciones de nuestro código dependiendo del valor que estemos comprobando.
+
+// Sentencia IF (si)
+
+if (true) {
+    console.log('Es true') //'Es true'
+}
+
+if (false) {
+    console.log ('Es true'); // no se imprime
+}
+
+// Sentencia else (sino)
+let operacion = 5 + 2
+
+ if (operacion >= 7) {
+    console.log('Es true'); //imprime 'Es true'
+} else {
+    console.log('Es false'); //de lo contrario imprime 'Es false'
+}
+
+// if anidado
+let op1 = 2;
+if (s > 7) {
+    console.log ('Es mayor a 7');
+} else if(op1 <= 7 && op1 >= 2){ 
+console.log ('Está entre 7 y 2');
+} else {
+    console.log ('Es menor de dos');
+}
+
+// Sentencia switch
+let op2 = 5 + 2
+
+switch (op2) { 
+ case 0:
+  console.log ('El resultado es 0');
+  break
+  case 1:
+   console.log ('El resultado es 1');
+   break;
+   case 2:
+   console.log ('El resultado es 2');
+   break;
+   case 3:
+   console.log ('El resultado es 3');
+   break;
+   case 4:
+   console.log ('El resultado es 4');
+   break;
+   case 5:
+   console.log ('El resultado es 5');
+   break;
+   case 6:
+   console.log ('El resultado es 6');
+   break;
+ case 7: 
+  console.log('El resultado es 7');
+  break;
+ default: 
+  console.log ('El resultado no es ni 0 ni 7');
+}
+
+// FUNCIONES: Bloques de código que ejecutamos a los cuales podemos reutilizar en diferentes partes del código
+// y se le pasan ciertos parámetros que son los datos que queremos transformar
+// Ideal que hagan una tarea concreta para que sea fácil para textear y a la larga, nuestro código sea legible y mantenible
+
+function saludar(nombre) {
+ return `Hola ${nombre}!`
+ // return "Hola" + nombre + "!" //(ya es antiguo, pero se puede usar)
+}
+saludar("Carlos")
+saludar("Pepe")
+saludar("Virginia")
+saludar() //Hola undifined
+
+function saludar(nombre = Virginia) {
+ return `Hola ${nombre}!`
+ // return "Hola" + nombre + "!" //(ya es antiguo, pero se puede usar)
+}
+saludar("Margaret")
+
+// Clases: Se coloca la primera letra en mayúscula para diferenciarlo de una función normal
+function Inventario (nombre){
+ this.nombre = nombre;
+ this.articulos = [];
+}
+// Añadir métodos se utiliza la propiedad prototype
+Inventario.prototype.getNombre = function () { 
+ return this.nombre;
+}
+
+Inventario.prototype.add = function(articulo, cantidad){
+ this.articulos[articulo] = cantidad;
+}
+
+Inventario.prototype.cantidad = function(articulo){
+ return this.articulos[articulo]
+}
+
+// Crear un objeto de la clase Inventario de la forma vieja 
+// let libros = new Inventario('Libros');
+// libros.getNombre();
+// libros.add('Aprendiendo JavaScript', 5);
+// libros.cantidad('Aprendiendo JavaScript');
+
+// Forma actual
+class Inventario{ 
+ constructor(nombre) {
+  this.nombre = nombre;
+ this.articulos = [];
+ }
+
+ getNombre(){
+  return this.nombre;
+ }
+
+ add(articulo, cantidad){
+  this.articulos[articulo] = cantidad;
+ }
+
+ cantidad(articulo){
+  return this.articulos[articulo]
+ }
+}
+
+let libros = new Inventario('Libros');
+libros.getNombre();
+libros.add('Aprendiendo JavaScript', 5);
+libros.cantidad('Aprendiendo JavaScript');
